@@ -1,5 +1,5 @@
 {% set name = "bg-atlasapi" %}
-{% set version = "1.0.2" %}
+{% set version = "1.0.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   - url: https://github.com/brainglobe/bg-atlasapi/archive/v{{ version }}.tar.gz
-    sha256: 2e0d19bff54387262abc73055d7ba2e76495fe7dcb5a8ad277647cde93984af4
+    sha256: a88ad84c819c55696823d57ffab4cd7429f6356e20022da889c61502d357bb36
     folder: gh_archive
   # pypi source only added so the bot can detect new releases - installation uses the GH archive above
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/bg-atlasapi-{{ version }}.tar.gz
-    sha256: a52c5935975be8bce92f527f017a6222d891f3abc2161b4b82c9b2f6d2d880e7
+    sha256: 9e45e5205b36af12acd673e25410257aac32e25273d8b2d443ae622325482f3c
     folder: pypi_tarball
 
 build:
