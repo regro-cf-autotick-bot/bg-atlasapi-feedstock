@@ -10,7 +10,7 @@ source:
     sha256: 2e0d19bff54387262abc73055d7ba2e76495fe7dcb5a8ad277647cde93984af4
     folder: gh_archive
   # pypi source only added so the bot can detect new releases - installation uses the GH archive above
-  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/bg-atlasapi-{{ version }}.tar.gz
+  - url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/bg-atlasapi-{{ version }}.tar.gz
     sha256: a52c5935975be8bce92f527f017a6222d891f3abc2161b4b82c9b2f6d2d880e7
     folder: pypi_tarball
 
@@ -19,19 +19,19 @@ build:
     - brainglobe = bg_atlasapi.cli:bg_cli
   noarch: python
   script: {{ PYTHON }} -m pip install ./gh_archive/ -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
   run:
     - bg-space >=0.5.0
     - click
     - meshio
     - numpy
     - pandas
-    - python >=3.6
+    - python >={{ python_min }}
     - requests
     - rich
     - tifffile
@@ -47,6 +47,7 @@ test:
     - brainglobe --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/brainglobe/bg-atlasapi
